@@ -2,25 +2,112 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 
-\title{Ejemplo}
+\title{Ocimatic}
 
 \begin{document}
 \begin{problemDescription}
-\lipsum[1-3]
+La Organización de Comercio Internacional (OCI) desarrollo un software llamado
+\emph{ocimatic} capaz de realizar algunas tareas de contabilidad.
+Los usuarios de ocimatic pueden interactuar con el software usando lenguaje
+natural.
+Una típica conversación con ocimatic es de la siguiente forma.
+
+\begin{center}
+% \fbox{\includegraphics[scale=0.45]{ocimatic2.png}}
+\end{center}
+
+Ocimatic es un software extremadamente sofisticado e internamente utiliza
+complejos algoritmos con el fin de entender las instrucciones de sus usuarios.
+Un algoritmo importante dentro de ocimatic está encargado del reconocimiento de
+\emph{entidades nombradas}.
+Para ocimatic, una entidad nombrada es cualquier fragmento de un texto que
+corresponda al nombre de una persona o al de una organización.
+Por ejemplo, en el texto ``\texttt{Gimuel Caspumano es el gerente general
+  de la OCI.}''
+se pueden reconocer dos entidades nombradas: \emph{Gimuel Caspumano} y \emph{OCI}.
+
+Dado un texto, una entidad nombrada puede representarse con un par de números
+$(a,b)$ que indican respectivamente la posición inicial y final en que la
+entidad aparece en el texto.
+Por ejemplo, dado el texto de ejemplo anterior la entidad \emph{Gimuel Caspumano}
+puede representarse con el par (1,16) y la entidad \emph{OCI} con el par
+(46,48).
+Esto puede apreciarse en la siguiente figura.
+
+\scriptsize
+% \setlength{\tabcolsep}{0.2em}
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%   \hline
+%   1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18&19&20&21&22&23&24&25&26&27&28&29&30\\
+%   \hline
+%   G&i&m&u&e&l& &C&a&s&p&u&m&a&n&o& &e&s& &e&l& &g&e&r&e&n&t&e\\
+%   \hline
+% \end{tabular}
+
+% \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+%   \hline
+%   31&32&33&34&35&36&37&38&39&40&41&42&43&44&45&46&47&48&49\\
+%   \hline
+%    &g&e&n&e&r&a&l& &d&e& &l&a& &O&C&I&.\\
+% \hline
+% \end{tabular}
+\setlength{\tabcolsep}{0.2em}
+\hspace*{-5em}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|c|}
+  \hline
+  1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18&19&20&21&22&23&24&25&26&27&28&29&30&31&32&33&34&35&36&37&38&39&40&41&42&43&44&45&46&47&48&49\\
+  \hline
+  G&i&m&u&e&l& &C&a&s&p&u&m&a&n&o& &e&s& &e&l& &g&e&r&e&n&t&e& &g&e&n&e&r&a&l& &d&e& &l&a& &O&C&I&.\\
+  \hline
+\end{tabular}
+\normalsize
+
+% El proceso de reconocer entidades es complejo e imperfecto, es por esto que a
+% cada entidad reconocida además se la asigna una \emph{confianza}.
+% Esta confianza corresponde a un número entre 0 y 100 que representa con que
+% nivel de seguridad la entidad corresponde a una entidad real.
+% En definitiva una entidad puede ser identificada por un par $(a, b)$ y un entero
+% $c$, donde $(a, b)$ y representa el intervalo del texto donde se encuentra la entidad
+% y $c$ la confianza con que la entidad fue reconocida.
+
+El equipo de la OCI está experimentando algunos problemas con el reconocimiento de
+entidades nombradas en ocimatic y necesitan de tu ayuda.
+Específicamente, ocimatic está reconociendo entidades que están \emph{contenidas}
+dentro de otras.
+Por ejemplo, para el texto de ejemplo anterior, ocimatic actualmente reconoce las
+siguientes entidades: $(1, 6)$, $(8, 16)$, $(1, 16)$ y $(46, 48)$.
+Es claro que la entidad $(1, 6)$, correspondiente al texto \emph{Gimuel}, y la
+entidad $(8, 16)$, correspondiente al texto \emph{Caspumano}, están
+contenidas dentro de la entidad $(1, 16)$, correspondiente al texto \emph{Gimuel
+  Caspumano}.
+Decimos que una entidad $(a_1,b_1)$ está contenida dentro de una entidad
+$(a_2,b_2)$ si $a_2\leq a_1$ y $b_1\leq b_2$.
+
+La OCI está interesada en saber cuál es el impacto de este problema, el cuál
+puede contabilizarse como la cantidad de entidades reconocidas por ocimatic que
+están contenidas dentro de otra.
+Dado un conjunto de entidades tu tarea es contar la cantidad de entidades
+que están contenidas dentro de otra.
+% Específicamente, el impacto para un texto corresponde a la suma de las
+% confianzas de las entidades contenidas dentro de otra entidad.
 \end{problemDescription}
 
 \begin{inputDescription}
-\lipsum[1]
+  La entrada está compuesta por varias líneas.
+  La primera línea contiene un entero $N$ correspondiente al número de entidades.
+  Cada una de las siguientes $N$ líneas contiene dos enteros $a$ y $b$ ($0\leq
+  a\leq b \leq 1000$) que describen una entidad $(a,b)$.
 \end{inputDescription}
 
 \begin{outputDescription}
-\lipsum[1]
+  La salida debe contener una única línea con un entero correspondiente a la cantidad de
+  entidades que están contenidas dentro de otra.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \score{10} Restricciones Subtarea1
-  \score{10} Restricciones Subtarea2
-  \score{10} Restricciones Subtarea3
+  \score{10} Se probarán varios casos donde $1\leq N\leq 2$.
+  \score{10} Se probarán varios casos donde $2< N \leq 100$.
+  \score{10} Se probarán varios casos donde $100< N \leq 10^5$ y 
 \end{scoreDescription}
 
 \begin{sampleDescription}

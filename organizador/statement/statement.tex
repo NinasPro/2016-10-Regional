@@ -6,43 +6,66 @@
 
 \begin{document}
 \begin{problemDescription}
-Pedro es melómano total, cada momento silencioso de su vida lo elimina
-al acompañarlo con sus temas favoritos. Su celular cuenta con más de
-300.000 pistas de música y al parecer no quiere parar de seguir
-añadiendo canciones a su celular. Con el fin de organizar su música en
-listas de reproducción, Pedro descargó una aplicación para su celular
-llamada OCI (Organizador de canciones inteligente), la cual arma listas
-de reproducción con un orden preciso y ad-hoc a la situación.
+Pedro es un fanático de la música, cada momento lo aprovecha acompañándolo con
+sus canciones favoritas.
+Su celular cuenta con más de 300\,000 pistas y al parecer no piensa parar de
+añadir canciones.
+Con el fin de poder organizar su música en listas de reproducción, Pedro
+descargó una aplicación llamada OCI (Organizador de Canciones Inteligente).
+Con OCI ahora Pedro puede escoger una nueva lista de reproducción cada día y
+escucharla mientras camina desde su casa al colegio.
+Una vez que selecciona una lista las canciones en ella se reproduce en orden de
+forma continua.
 
-Ultimamente Pedro ha estado llegando tarde a clases ya que él
-intencionalmente no entra a la sala hasta que la canción que esta
-escuchando termine. Es por eso que te ha pedido a ti que escribas un
-programa para su aplicación que dado un intervalo de tiempo en
-\texttt{horas:minutos} y las duraciones de cada una las canciones de la
-lista, determines si es posible reproducir la lista de reproducción
-completa, y en el caso de que no se pueda, indicar cual es la ultima
-canción que debe reproducir.
+A Pedro no le gusta detener una canción mientras esta se está reproduciendo.
+Por lo tanto cada vez que llega al colegio no entra a la sala hasta que la
+canción que está escuchando termine.
+Debido a esto, Pedro ha estado llegando tarde a sus clases.
+% y el inspector ya lo ha amenazado con suspenderlo. 
+% Debido a esto, Pedro ha estado llegando tarde a clases ya que
+% intencionalmente no entra a la sala hasta que la canción que está
+% escuchando termine.
+
+Pedro no puede seguir llegando atrasado pues el inspector amenazó
+con suspenderlo si lo volvía a hacer.
+Tampoco puede soportar detener una canción a la mitad y le gustaría además
+escuchar la mayor cantidad de canciones posibles antes de entrar a la sala.
+Dada una lista de reproducción y la duración de cada una de sus canciones a
+Pedro le gustaría saber cuál es la última canción que podría escuchar por
+completo dado el tiempo en que se demora en ir desde su casa al colegio.
+
+% Dada una lista de reproducción Pedro quiere saber 
+% Es por eso que te ha pedido a ti que escribas un
+% programa para su aplicación que dado un intervalo de tiempo en
+% \texttt{horas:minutos} y las duraciones de cada una las canciones de la
+% lista, determines si es posible reproducir la lista de reproducción
+% completa, y en el caso de que no se pueda, indicar cual es la ultima
+% canción que debe reproducir.
 \end{problemDescription}
 
 \begin{inputDescription}
-El input consiste en un dos números enteros 0\(\leq\)H\(\leq\)99 y
-0\(\leq\)M\(\leq\)59, horas y minutos respectivamente en que demora
-desde su casa al colegio. Un número entero 0\(\leq\)N \(\leq\) \(10^3\)
-que indica el número de canciones la lista de reproducción. Y finalmente
-la duración de cada canción en 0\(\leq\)M,
-0\(\leq\)S, minutos y segundos respectivamente.
+  La entrada está compuesta de varias líneas.
+  La primera línea contiene dos enteros $H$ y $M$ correspondientes
+  respectivamente a la cantidad de horas y minutos que Pedro tarda en ir desde su
+  casa al colegio ($0\leq H\leq 99$, $0\leq M\leq 59$).
+  La siguiente línea contiene un entero $N$ ($0\leq N\leq 300\,000$)
+  correspondiente a la cantidad de canciones en la lista de reproducción.
+  Cada una de las siguientes $N$ líneas describe una canción y cada canción es
+  identificada con un número entre 1 y $N$ en este mismo orden.
+  Cada una de las líneas describiendo una canción contiene dos enteros $M_i$ y $S_i$
+  correspondientes a la duración en minutos y segundos ($0\leq
+  M_i\leq 99, 0\leq S_i\leq 59$).
 \end{inputDescription}
 
 \begin{outputDescription}
-El output consiste en un número entero que indica cual
-es la ultima canción que se alcanza a reproducir, el número esta dado por el
-orden en que fueron ingresadas, siendo la primera 1, y la ultima N.
+  La salida consiste en un único entero indicando cuál es el número 
+de la ultima canción que es posible reproducir completamente.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \score{10} Se probaran casos en que las canciones tengan solo minutos, S = 0
-  \score{10} Se probaran casos en que las canciones tengan segundos menores a 60, 0 $\leq$ S $\leq$ 59
-  \score{10} Se probaran casos en que las canciones tengan segundos mayores a 60, $\leq$S
+  \score{50} Se probarán casos en en donde las canciones durarán una cantidad
+  exacta de minutos ($S_i = 0$).
+  \score{50} Se probarán casos sin restricciones adicionales. 
 \end{scoreDescription}
 
 \begin{sampleDescription}
