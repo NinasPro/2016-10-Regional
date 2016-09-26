@@ -3,6 +3,7 @@
 \usepackage{lipsum}
 \usepackage{tabu}
 \usepackage{xcolor}
+% \usepackage{arydshln}
 
 \title{Ocimatic}
 
@@ -38,21 +39,21 @@ puede representarse con el par (1,16) y la entidad \emph{OCI} con el par
 Esto puede apreciarse en la siguiente figura.
 
 \vspace{1em}
-% \newcolumntype{C}[1]{>{\centering}m{#1}}
-% \newcolumntype{C}{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}p{0.67em}}
-\newcolumntype{C}{@{}>{\centering}p{1em}@{}}
-% \hspace*{-2.5em}
-\hspace*{-4em}
+\makebox[\linewidth]{
+\newcolumntype{C}{@{}>{\centering}p{0.92em}@{}}
 \begin{tabu}{C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C|C}
   \taburulecolor{lightgray}
   % \hline
-  \rowfont{\scriptsize}
+  \rowfont{\tiny}
   1&2&3&4&5&6&7&8&9&10&11&12&13&14&15&16&17&18&19&20&21&22&23&24&25&26&27&28&29&30&31&32&33&34&35&36&37&38&39&40&41&42&43&44&45&46&47&48&49\\
   \hline
   \rowfont{\small}
-  G&i&m&u&e&l& &C&a&s&p&u&m&a&n&o& &e&s& &e&l& &g&e&r&e&n&t&e& &g&e&n&e&r&a&l& &d&e& &l&a& &O&C&I&.\\
+  G&i&m&u&e&l& &C&a&s&p&u&m&a&n&o& &e&s& &e&l& &g&e&r&e&n&t&e& &g&e&n&e&r&a&l&%
+  &d&e& &l&a& &O&C&I&.
+  % \multicolumn{49}{c}{Gimuel Caspumano es el gerente general de la OCI.}
   % \hline
 \end{tabu}
+}
 \vspace{0.5em}
 % El proceso de reconocer entidades es complejo e imperfecto, es por esto que a
 % cada entidad reconocida además se la asigna una \emph{confianza}.
@@ -72,8 +73,8 @@ Es claro que la entidad $(1, 6)$, correspondiente al texto \emph{Gimuel}, y la
 entidad $(8, 16)$, correspondiente al texto \emph{Caspumano}, están
 contenidas dentro de la entidad $(1, 16)$, correspondiente al texto \emph{Gimuel
   Caspumano}.
-Decimos que una entidad $(a_1,b_1)$ está contenida dentro de una entidad
-$(a_2,b_2)$ si $a_2\leq a_1$ y $b_1\leq b_2$.
+Formalmente, decimos que una entidad $(a_1,b_1)$ está contenida dentro de una
+entidad $(a_2,b_2)$ si $a_2\leq a_1$ y $b_1\leq b_2$.
 
 La OCI está interesada en saber cuál es el impacto de este problema.
 % el cuál
@@ -88,7 +89,9 @@ cantidad de entidades que están contenidas dentro de otra.
 \begin{inputDescription}
   La primera línea contiene un entero $N$ correspondiente al número de entidades.
   Cada una de las siguientes $N$ líneas contiene dos enteros $a$ y $b$ ($1\leq
-  a\leq b \leq 1000$) que describen una entidad $(a,b)$.
+  a\leq b \leq 10^9$) que describen una entidad $(a,b)$.
+  Se garantiza que no habrán dos entidades iguales, es decir, la entrada no
+  contiene líneas repetidas.
 \end{inputDescription}
 
 \begin{outputDescription}
