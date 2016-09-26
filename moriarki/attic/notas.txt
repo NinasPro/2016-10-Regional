@@ -1,0 +1,2 @@
+moriarkitests genera 100 casos de prueba random para la subtarea 3
+moriarkiverifier recibe los casos de prueba (todos de una) y da el resultado esperado. Además dice si el output es muy grande.
