@@ -9,23 +9,34 @@
 
 \begin{document}
 \begin{problemDescription}
-Araya era una niña muy feliz hasta que entró a 1ero medio.
-Hizo varias amigas, le caía bien a sus profesores, y tuvo buenas notas en todos sus ramos, excepto matemáticas. Araya está convencida de que es culpa de su profesor. Es más, está segura de que el Señor Moriarki es un genio malévolo que encuentra la forma precisa de explicar las cosas de tal manera que ella se aburra lo más posible y se quede dormida en clases.
+Araya solía ser una niña muy feliz pero cuando entró a 1ero medio todo cambió.
+En un principio logró hacer muchas amigas y en general disfrutaba de casi todas
+sus asignaturas, todas a excepción de matemáticas.
+Araya está convencida de que todo es culpa de su profesor.
+Es más, está segura de que su profesor, el señor Moriarki, es un genio malévolo
+que disfruta explicando las cosas de la forma más aburrida posible.
 
-Mientras que las notas de sus compañeras se mantienen iguales que siempre, las notas de Araya van en descenso constante. Su última nota de matemáticas fue la peor de todo el colegio, y está en peligro de repetir el curso. Y todo por culpa del profesor Moriarki. Si no se saca un 7.0 en la próxima prueba tendrá que sufrir el martirio que ha sido 1ero medio por segunda vez. Y el único profesor de matemáticas de 1ero medio en todo el colegio es el Señor Moriarki. Araya está desesperada.
+Mientras sus compañeras mantienen buenas notas, las notas de Araya van en
+descenso constante.
+Su última nota en matemáticas fue la peor de todo el colegio, y a causa de esto
+está en peligro de repetir el curso.
+Y todo por culpa del profesor Moriarki.
+Si Araya no se saca un 7.0 en la próxima prueba tendrá que sufrir nuevamente el
+martirio que ha sido 1ero medio.
+% Y el único profesor de matemáticas de 1ero medio en todo el colegio es el Señor
+% Moriarki. Araya está desesperada.
 
-El profesor ya anunció como será la próxima prueba.
+El profesor Moriarki ya anunció como será la próxima prueba.
 Las preguntas consistirán en expresiones aritméticas con números y operaciones
 de suma y multiplicación.
-El alumno sólo deberá evaluar la expresión y responder su resultado.
+Los alumnos sólo deberán evaluar la expresión y responder su resultado.
 Por ejemplo, el resultado para la expresión que se muestra a continuación es 23.
+Notar que las multiplicaciones deben efectuarse antes que las sumas como es usual.
 $$
 2 + 2 \times 2 + 2\times 3 \times 2 + 5
 $$
-Notar que, como es común, las multiplicaciones deben efectuarse antes que las sumas.
-
 Parece muy simple, ¿no?.
-Sin embargo, Araya sabe que Moriarki es más astuto que esto.
+Sin embargo, Araya sabe que Moriarki es más astuto que 	esto.
 La prueba no puede ser tan fácil.
 Debe tramar algo.
 Algo malvado.
@@ -39,41 +50,73 @@ Todos están muy extrañados.
 Finalmente, anuncia que los ejercicios en la prueba serán expresiones con cien
 números y tendrán solo 2 segundos para responder cada uno de ellos.
 
-Una sensación de desesperación global se manifiesta en todos los compañeros de
+Una sensación de desesperación global se manifiesta en todas las compañeras de
 Araya.
 Todos se preguntan ``¿es en serio?'', ``no puede hacernos esto'', ``quién
 habría pensado que el profesor Moriarki sería tan malvado''.
 % y otras frases que no sería pertinente decir en este enunciado.
-Por un lado Araya está satisfecha, pues ahora tiene evidencia para mostrar a sus
-compañeros que Moriarki es evidentemente malvado.
-% Por otro, comienza a desesperarse 
-% Ahora todos sabrán que Araya decía la verdad, pero en este momento no puede hacer nada. La prueba ya comenzó y todos sus compañeros están a su propia suerte.
+Por un lado Araya se siente satisfecha, pues ahora tiene evidencia para mostrar a sus
+compañeras que Moriarki es evidentemente malvado.
+Por otro, comienza a desesperarse pues recuerda que necesita un 7.0 para poder
+pasar de curso.
+?`Podrías ayudar a Araya a pasar de curso?
 
-- "Tendrán cinco horas antes de que les entregue la prueba. Úsenlas bien."- Anuncia el profesor Moriarki. Una luz de esperanza. Mientras algunos combaten la ansiedad de no saber qué hacer esas cinco horas con el computador, algunos ya se rindieron y comenzaron a ver Facebook. Sin embargo, Araya es una niña que logra buscar la respuesta a los problemas más imposibles, mientras no sean fracciones, y tiene la ingeniosa idea de hacer un programa que lea el archivo, y entregue la solución a la expresión en el archivo. ¡Ayuda a Araya a pasar de curso y a vengar a sus compañeros!
+% - "Tendrán cinco horas antes de que les entregue la prueba. Úsenlas bien."-
+% Anuncia el profesor Moriarki.
+% Una luz de esperanza. Mientras algunos combaten la ansiedad de no saber qué hacer esas cinco horas con el computador, algunos ya se rindieron y comenzaron a ver Facebook. Sin embargo, Araya es una niña que logra buscar la respuesta a los problemas más imposibles, mientras no sean fracciones, y tiene la ingeniosa idea de hacer un programa que lea el archivo, y entregue la solución a la expresión en el archivo. ¡Ayuda a Araya a pasar de curso y a vengar a sus compañeros!
 
 \end{problemDescription}
 
+\newpage
 \begin{inputDescription}
-La entrada consiste en dos líneas. La primera línea es un número $N$ que indica la cantidad de números en la expresión. La segunda es la expresión misma, que consiste de $2N-1$ números. Los números en las posiciones impares representan los mismos números de la expresión, mientras que los números en las posiciones pares son las operaciones de la expresión. 
+  La entrada está compuesta de dos líneas.
+  La primera línea contiene un entero $N$ ($1\leq N\leq 100$) que indica la
+  cantidad de números que hay en la expresión aritmética.
+  La segunda línea contiene $2N-1$ enteros describiendo la expresión.
+  Los enteros en las posiciones impares representan los números de la expresión,
+  mientras que los enteros en las posiciones pares son las operaciones de la
+  expresión.
+  Un 0 en una posición par representa una suma ($+$), mientras que un 1
+  representa una multiplicación ($\times$). 
+  Por ejemplo, para representar la expresión
+  $$
+  2 + 2 \times 2 + 2\times 3 \times 2 + 5
+  $$
+  usamos la siguiente secuencia de enteros
+\begin{verbatim}
+                              2 0 2 1 2 0 2 1 3 1 2 0 5
+\end{verbatim}
 
-Formalmente, la segunda línea es $k_1$ $c_1$ $k_2$ $c_2$ $\cdots$ $c_{n-1}$ $k_n$, donde $k_i$ es un número entero y $c_i$ es 0 o 1, para cada $i \leq n$, donde 0 se lee como $+$ y 1 se lee como $\times$. Ve los casos de ejemplo para mejor claridad.
-
-Se garantiza que en todos los casos, la solución será menor a $10^9$.
+  Formalmente, la segunda línea es de la forma $k_1$ $c_1$ $k_2$ $c_2$ $\cdots$
+  $c_{n-1}$ $k_n$, donde cada $k_i$ corresponde a un entero positivo menor que
+  1000 y cada $c_i$ es igual a 0 o a 1.
+  % $i \leq n$, donde 0 se lee como $+$ y 1 se lee como $\times$.
+  % Ve los casos de ejemplo para mejor claridad.
+  % Se garantiza que en todos los casos el resultado de evaluar la expresión será
+  % un número menor o igual que $10^9$.
 \end{inputDescription}
 
 \begin{outputDescription}
-Tu programa debe devolver un único número entero, la solución a la expresión del input.
+Tu programa debe imprimir una línea con un único entero, el resultado de evaluar la
+expresión aritmética.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \score{10} Se probarán casos donde $1 \leq N \leq 100$, $1\leq k_i \leq 1000$, y $c_i = 0$ para cada $i$.
-  \score{10} Se probarán casos donde $1 \leq N \leq 100$, $1\leq k_i \leq 1000$ para cada $i$. Además, existe un $m$ tal que $0 \leq m \leq n$ y para cada $i < m$, se tiene que $c_i = 1$, y para cada $i \geq m$ se tiene $c_i = 0$. Ver ejemplo 2.
-  \score{10} Se probarán casos donde $1 \leq N \leq 100$, $1\leq k_i \leq 1000$, y $c_i \in \{0,1\}$ para cada $i$.
+  \score{20} Se probarán varios casos donde todas las operaciones son sumas, es decir,
+  $c_i = 0$ para todo $i$.
+  Ver ejemplo de entrada 1.
+  \score{35} Se probarán varios casos donde la expresión primero contiene solo
+  multiplicaciones y luego solo sumas, es decir, existe un $m$ tal que $0 \leq m \leq n$ y para
+  cada $i < m$, se tiene que $c_i = 1$, y para cada $i \geq m$ se tiene $c_i =
+  0$.
+  Ver ejemplo de entrada 2. 
+  \score{45} Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}
-\sampleIO{sample1}
+\sampleIO{sample3}
 \sampleIO{sample2}
+\sampleIO{sample1}
 \end{sampleDescription}
 
 \end{document}
