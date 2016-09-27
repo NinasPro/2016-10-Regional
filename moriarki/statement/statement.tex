@@ -10,10 +10,8 @@
 \begin{document}
 \begin{problemDescription}
 Araya solía ser una niña muy feliz pero cuando entró a 1ero medio todo cambió.
-Desde un principio logró hacer muchas amigas y disfrutaba además casi todas sus
-asignaturas, todas a excepción de matemáticas.
-% Hizo varias amigas, le caía bien a sus profesores, y tuvo buenas notas en todos
-% sus ramos, excepto matemáticas.
+En un principio logró hacer muchas amigas y en general disfrutaba de casi todas
+sus asignaturas, todas a excepción de matemáticas.
 Araya está convencida de que todo es culpa de su profesor.
 Es más, está segura de que su profesor, el señor Moriarki, es un genio malévolo
 que disfruta explicando las cosas de la forma más aburrida posible.
@@ -33,7 +31,7 @@ Las preguntas consistirán en expresiones aritméticas con números y operacione
 de suma y multiplicación.
 Los alumnos sólo deberán evaluar la expresión y responder su resultado.
 Por ejemplo, el resultado para la expresión que se muestra a continuación es 23.
-Notar que las multiplicaciones deben efectuarse antes que las sumas.
+Notar que las multiplicaciones deben efectuarse antes que las sumas como es usual.
 $$
 2 + 2 \times 2 + 2\times 3 \times 2 + 5
 $$
@@ -90,7 +88,7 @@ pasar de curso.
 \end{verbatim}
 
   Formalmente, la segunda línea es de la forma $k_1$ $c_1$ $k_2$ $c_2$ $\cdots$
-  $c_{n-1}$ $k_n$, donde cada $k_i$ corresponde a un número positivo menor que
+  $c_{n-1}$ $k_n$, donde cada $k_i$ corresponde a un entero positivo menor que
   1000 y cada $c_i$ es igual a 0 o a 1.
   % $i \leq n$, donde 0 se lee como $+$ y 1 se lee como $\times$.
   % Ve los casos de ejemplo para mejor claridad.
@@ -99,7 +97,7 @@ pasar de curso.
 \end{inputDescription}
 
 \begin{outputDescription}
-Tu programa debe imprimir un línea con único entero, el resultado de evaluar la
+Tu programa debe imprimir una línea con un único entero, el resultado de evaluar la
 expresión aritmética.
 \end{outputDescription}
 
@@ -107,11 +105,12 @@ expresión aritmética.
   \score{20} Se probarán varios casos donde todas las operaciones son sumas, es decir,
   $c_i = 0$ para todo $i$.
   Ver ejemplo de entrada 1.
-  \score{30} Se probarán varios casos donde primero hay solo multiplicaciones y luego
-  solo sumas, es decir, existe $m \leq n$ tal que para
+  \score{35} Se probarán varios casos donde la expresión primero contiene solo
+  multiplicaciones y luego solo sumas, es decir, existe un $m \leq n$ tal que para
   cada $i < m$, se tiene que $c_i = 1$, y para cada $i \geq m$ se tiene $c_i =
-  0$. Ver ejemplo de entrada 2. 
-  \score{50} Se probarán varios casos sin restricciones adicionales.
+  0$.
+  Ver ejemplo de entrada 2. 
+  \score{45} Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}
 
 \begin{sampleDescription}

@@ -21,22 +21,23 @@ Una típica conversación con ocimatic es de la siguiente forma.
 \end{center}
 
 Ocimatic es un software extremadamente sofisticado e internamente utiliza
-complejos algoritmos con el fin de procesar el texto ingresado por los usuarios.
+complejos algoritmos con el fin de procesar y entender el texto ingresado por
+los usuarios.
 Un algoritmo importante dentro de ocimatic está encargado del reconocimiento de
-\emph{entidades nombradas}.
-Para ocimatic, una entidad nombrada es cualquier fragmento de un texto que
+\emph{entidades}.
+Para ocimatic, una entidad es cualquier fragmento de un texto que
 corresponda al nombre de una persona o al de una organización.
 Por ejemplo, en el texto ``\texttt{Gimuel Caspumano es el gerente general
   de la OCI.}''
-se pueden reconocer dos entidades nombradas: \emph{Gimuel Caspumano} y \emph{OCI}.
+se pueden reconocer dos entidades: \emph{Gimuel Caspumano} y \emph{OCI}.
 
-Dado un texto, una entidad nombrada puede representarse con un par de números
+Dado un texto, una entidad puede representarse con un par de números
 $(a,b)$ que indican respectivamente la posición inicial y final en que la
 entidad aparece en el texto.
 Por ejemplo, dado el texto de ejemplo anterior la entidad \emph{Gimuel Caspumano}
 puede representarse con el par (1,16) y la entidad \emph{OCI} con el par
 (46,48).
-Esto puede apreciarse en la siguiente figura.
+Esto puede apreciarse mejor en la siguiente figura.
 
 \vspace{1em}
 \makebox[\linewidth]{
@@ -50,23 +51,14 @@ Esto puede apreciarse en la siguiente figura.
   \rowfont{\small}
   G&i&m&u&e&l& &C&a&s&p&u&m&a&n&o& &e&s& &e&l& &g&e&r&e&n&t&e& &g&e&n&e&r&a&l&%
   &d&e& &l&a& &O&C&I&.
-  % \multicolumn{49}{c}{Gimuel Caspumano es el gerente general de la OCI.}
-  % \hline
 \end{tabu}
 }
 \vspace{0.5em}
-% El proceso de reconocer entidades es complejo e imperfecto, es por esto que a
-% cada entidad reconocida además se la asigna una \emph{confianza}.
-% Esta confianza corresponde a un número entre 0 y 100 que representa con que
-% nivel de seguridad la entidad corresponde a una entidad real.
-% En definitiva una entidad puede ser identificada por un par $(a, b)$ y un entero
-% $c$, donde $(a, b)$ y representa el intervalo del texto donde se encuentra la entidad
-% y $c$ la confianza con que la entidad fue reconocida.
 
-El equipo de la OCI está experimentando algunos problemas con el reconocimiento de
-entidades nombradas en ocimatic y necesitan de tu ayuda.
-Específicamente, ocimatic está reconociendo entidades que están \emph{contenidas}
-dentro de otras.
+El equipo de desarrollo de ocimatic está experimentando algunos problemas con
+el reconocimiento de entidades y necesitan de tu ayuda.
+Específicamente, ocimatic está reconociendo algunas entidades que están
+\emph{contenidas} dentro de otras.
 Por ejemplo, para el texto de ejemplo anterior, ocimatic actualmente reconoce las
 siguientes entidades: $(1, 6)$, $(8, 16)$, $(1, 16)$ y $(46, 48)$.
 Es claro que la entidad $(1, 6)$, correspondiente al texto \emph{Gimuel}, y la
@@ -77,21 +69,16 @@ Formalmente, decimos que una entidad $(a_1,b_1)$ está contenida dentro de una
 entidad $(a_2,b_2)$ si $a_2\leq a_1$ y $b_1\leq b_2$.
 
 La OCI está interesada en saber cuál es el impacto de este problema.
-% el cuál
-% puede contabilizarse como la cantidad de entidades que están contenidas dentro
-% de otra.
-Dado un conjunto de entidades, tu tarea es evaluar este impacto contando la
+Dado un conjunto de entidades, tu tarea es evaluar el impacto contando la
 cantidad de entidades que están contenidas dentro de otra.
-% Específicamente, el impacto para un texto corresponde a la suma de las
-% confianzas de las entidades contenidas dentro de otra entidad.
 \end{problemDescription}
 
 \begin{inputDescription}
   La primera línea contiene un entero $N$ correspondiente al número de entidades.
   Cada una de las siguientes $N$ líneas contiene dos enteros $a$ y $b$ ($1\leq
-  a\leq b \leq 10^9$) que describen una entidad $(a,b)$.
-  Se garantiza que no habrán dos entidades iguales, es decir, la entrada no
-  contiene líneas repetidas.
+  a\leq b \leq 10^9$) describiendo una entidad $(a,b)$.
+  Se garantiza que la entrada no contiene líneas repetidas, es decir, no habrán
+  dos entidades iguales.
 \end{inputDescription}
 
 \begin{outputDescription}
@@ -100,9 +87,9 @@ cantidad de entidades que están contenidas dentro de otra.
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \score{20} Se probarán varios casos donde $1\leq N\leq 2$.
+  \score{15} Se probarán varios casos donde $1\leq N\leq 2$.
   \score{30} Se probarán varios casos donde $2< N \leq 100$.
-  \score{30} Se probarán varios casos donde $100< N \leq 10^5$.
+  \score{35} Se probarán varios casos donde $100< N \leq 10^5$.
 \end{scoreDescription}
 
 \begin{sampleDescription}
