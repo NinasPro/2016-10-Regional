@@ -1,5 +1,5 @@
 import java.util.*;
-public class moriarki {
+public class mmunos {
 
 	public static void main(String[] args) {
 		Scanner seer = new Scanner(System.in);
