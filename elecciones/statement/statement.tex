@@ -2,30 +2,134 @@
 \usepackage[utf8]{inputenc}
 \usepackage{lipsum}
 
-\title{Ejemplo}
+\title{Elecciones}
 
 \begin{document}
 \begin{problemDescription}
-\lipsum[1-3]
+Lok\'omon GO es un famoso juego para celular basado en la franquicia de los tazos Lok\'omon. Nuestros abuelos sol\'ian comprar doritos y coleccionar tazos Lok\'omon como los siguientes:
+
+\begin{center}
+	\includegraphics[scale=0.4]{lokomons.jpg}
+\end{center}
+
+Lok\'omon GO consiste en desplazarse por la ciudad para encontrar y coleccionar Lok\'omons, los cuales aparecen en lugares y horarios determinados de manera integrada con el GPS del celular.
+
+Dado el \'exito del juego Lok\'omon GO, los dise\~nadores est\'an buscando formas de optimizar la aparici\'on de Lok\'omons en determinados sectores de modo tal de satisfacer algunas restricciones, por ejemplo, que el Lok\'omon que aparece sea el preferido de los residentes de esa localidad.
+
+Afortunadamente, los creadores del juego disponen de una lista ordenada de preferencias de Lok\'omons por cada vecino del sector. Por ejemplo, si enumer\'asemos los Lok\'omons de la foto como Nelmanpuff = 1, Pijorgech\'u = 2 y Olonsonder = 3, una lista corresponder\'ia un orden de estos valores. Por ejemplo, $3 > 1 > 2$ indica que el vecino asociado a esa lista prefiere Olonsonder en primer lugar, Nelmanpuff en segundo lugar, y que su Lok\'omon menos preferido es Pijorgech\'u.
+
+El problema consiste en cuatro tareas. En cada tarea se indicar\'a un objetivo y debes ayudar a interpretar la informaci\'on de las listas para decidir cual es el Lok\'omon m\'as adecuado para aparecer en la vecindad. Si m\'as de un Lok\'omon es el \'optimo, deber\'as seleccionar aquel cuyo \'indice sea menor.
 \end{problemDescription}
 
 \begin{inputDescription}
-\lipsum[1]
+La primera l\'inea del input contiene dos enteros $N$ y $M$ separados por un espacio, donde $N$ indica el n\'umero de Lok\'omons distintos que existen (que ser\'an numerados $1,2,\cdots,N$) y $M$ indica el n\'umero de personas en la vecindad.
+Las siguientes $M$ l\'ineas describen las listas de priodidad de cada vecino, de manera tal que la l\'inea $1 \leq i \leq M$ describe la lista del vecino $i$. Cada lista contiene una permutaci\'on del conjunto $\{1,\dots,N\}$, donde cada Lok\'omon est\'a ordenado de mayor a menor preferencia.
+
+Por ejemplo:
+
+\begin{minipage}[c]{\textwidth}
+  \begin{center}
+    \begin{tabular}{|l|} 
+      \hline
+      \begin{minipage}[t]{0.9\textwidth}
+        \vskip 0.3pt
+        \begin{verbatim}
+5 2
+3 5 1 2 4
+1 3 4 5 2
+        \end{verbatim}
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{minipage}
+
+Indica que hay $5$ Lok\'omons en total, y $2$ vecinos en el sector. El primer vecino prefiere el Lok\'omon 3, en segundo lugar el Lok\'omon 5, y luego en orden descendiente el 1, 2 y en \'ultimo lugar el 4. An\'alogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 > 5 > 2$.
+
+En todos los casos las constantes $N, M$ satisfar\'an las siguientes restricciones: $1 \leq N \leq 150$ y $1 \leq M \leq 10000$.
 \end{inputDescription}
 
 \begin{outputDescription}
-\lipsum[1]
+La salida consiste en una sola l\'inea con un \'unico n\'umero $P$, el \'indice del Lok\'omon que debe aparecer.
+A continuaci\'on se describen las reglas seg\'un las cuales se define cu\'al es este Lok\'omon.
+
+\textbf{Subtarea 1}: El favorito.
+
+En esta tarea, debes ignorar el orden de los Lok\'omons y mirar cu\'al es el preferido de cada persona. Para cada entrada, responde el Lok\'omon que aparece m\'as veces como el preferido de los vecinos. En caso de empate, entrega aquel de menor \'indice.
+
+\begin{sampleDescription}
+\sampleIO{sample1-1}
+\sampleIO{sample1-2}
+\end{sampleDescription}
+
+\textbf{Subtarea 2}: El despreciado.
+
+En esta tarea tampoco interesa en el orden de los Lok\'omons, sino solo el Lok\'omon m\'as odiado de cada persona. Para cada entrada, responde el Lok\'omon que aparece m\'as veces como el \'ultimo en la lista de los vecinos. En caso de empate, entrega aquel de menor \'indice.
+
+\begin{sampleDescription}
+\sampleIO{sample2}
+\end{sampleDescription}
+
+\textbf{Subtarea 3}: El ganador justo.
+
+Observa que la soluci\'on de la subtarea 1 no es la m\'as deseable socialmente. Por ejemplo, en el caso siguiente:
+
+\begin{minipage}[c]{\textwidth}
+  \begin{center}
+    \begin{tabular}{|l|} 
+      \hline
+      \begin{minipage}[t]{0.9\textwidth}
+        \vskip 0.3pt
+        \begin{verbatim}
+4 3
+1 2 3 4
+1 2 3 4
+2 3 4 1
+        \end{verbatim}
+      \end{minipage}
+      \\
+      \hline
+    \end{tabular}
+  \end{center}
+\end{minipage}
+
+La soluci\'on ser\'ia 1, lo cual dejar\'ia al tercer vecino muy enojado. En cambio, la soluci\'on 2 no molesta tanto a los primeros dos vecinos y deja contento al segundo. Para elegir al Lok\'omon de la zona, asigna valores $v_{i,j}$ a cada par (vecino, Lok\'omon) del modo siguiente: el $k$-\'esimo Lok\'omon de la lista del $i$-\'esimo vecino tiene valor $N-k$.
+
+Por ejemplo, si la lista del vecino $3$ es $2$ $3$ $4$ $1$, se tendr\'ia que $v_{3,1} = 0$, $v_{3,2} = 3$, $v_{3,3} = 2$ y $v_{3,4} = 1$.
+
+Entrega el Lok\'omon que maximice la suma de valores por sobre todos los vecinos. Es decir, $j$ tal que el valor $V_{j} := \sum_{i = 1}^{M}v_{i,j}$ sea m\'aximo. En caso de empate, responde aquel de menor \'indice. En el caso anterior, la suma de valores de $2$ es $7$ en tanto que la suma de valores de $1$ es solo $6$.
+
+\begin{sampleDescription}
+\sampleIO{sample3}
+\end{sampleDescription}
+
+\textbf{Subtarea 4}: El detector de mentiras.
+
+Observa ahora que la soluci\'on de la tarea 3 tiene el problema de dar incentivo a mentir. Por ejemplo, un vecino podr\'ia decir que odia un Lok\'omon que aprecia de modo tal que \'este baje en la evaluaci\'on y su primera elecci\'on aumente la valoraci\'on relativa. 
+
+Veamos el siguiente algoritmo para confundir a los jugadores y que no hagan trampa tan f\'acilmente.
+
+\begin{itemize}
+	\item Si hay un solo Lok\'omon en juego, devolverlo, si no, continuar.
+	\item Calcular la suma de valores para cada Lok\'omon como en la tarea 3.
+	\item Eliminar aquel con la menor suma. Si hay m\'as de uno con la menor suma, eliminar aquel con mayor \'indice.
+	\item Volver al paso 1.
+\end{itemize}
+
+Entrega en cada caso el resultado del algoritmo anterior.
+
+\begin{sampleDescription}
+\sampleIO{sample4}
+\end{sampleDescription}
+
 \end{outputDescription}
 
 \begin{scoreDescription}
-  \score{10} Restricciones Subtarea1
-  \score{10} Restricciones Subtarea2
-  \score{10} Restricciones Subtarea3
+  \score{15} Respuestas Subtarea 1.
+  \score{15} Respuestas Subtarea 2.
+  \score{30} Respuestas Subtarea 3.
+  \score{40} Respuestas Subtarea 4.
 \end{scoreDescription}
-
-\begin{sampleDescription}
-\sampleIO{sample1}
-\sampleIO{sample1}
-\end{sampleDescription}
 
 \end{document}
