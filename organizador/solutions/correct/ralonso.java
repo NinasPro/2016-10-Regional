@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.StringTokenizer;
 
-class Main {
+class ralonso {
     static public void main(String args[]) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 

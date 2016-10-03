@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.Scanner;
 
 
-class Main {
+class ralonso_scanner {
     static public void main(String args[]) throws IOException {
         Scanner s = new Scanner(System.in);
 
