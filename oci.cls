@@ -112,5 +112,6 @@
 \newenvironment{scoreDescription}{\subsection*{Subtareas y Puntaje}\begin{description}[leftmargin=0pt]\itemsep 0pt}{\end{description}}
 \newcommand{\score}[1]{\item[#1 puntos]}
 
-\newenvironment{sampleDescription}{\subsection*{Ejemplos de Entrada y Salida}}{}
+\newenvironment{sampleDescription}{\subsection*{Ejemplos de entrada y salida}}{}
+
 

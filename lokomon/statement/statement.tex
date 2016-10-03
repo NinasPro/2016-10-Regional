@@ -6,26 +6,67 @@
 
 \begin{document}
 \begin{problemDescription}
-Lok\'omon GO es un famoso juego para celular basado en la franquicia de los tazos Lok\'omon. Nuestros abuelos sol\'ian comprar doritos y coleccionar tazos Lok\'omon como los siguientes:
+Hace mucho tiempo nuestros abuelos solían comprar doritos y coleccionar tazos
+de Lokómon.
+Algunos lokómones populares en esa época eran Nelmanpuff, Pijorgechú
+y Olonsonder, de tipo música, hipster y fuego, respectivamente.
 
 \begin{center}
 	\includegraphics[scale=0.4]{lokomons.jpg}
 \end{center}
 
-Lok\'omon GO consiste en desplazarse por la ciudad para encontrar y coleccionar Lok\'omons, los cuales aparecen en lugares y horarios determinados de manera integrada con el GPS del celular.
+En este nuevo siglo la tecnología ha avanzado mucho y ahora nos permite tener
+nuevas y entretenidas formas de disfrutar con los lokónomes.
+Lokómon GO es un novedoso juego de realidad aumentada basado en esta popular
+franquicia de criaturas de bolsillo.
+El juego consiste en desplazarse por la ciudad con el objetivo de atrapar y
+coleccionar lokómones.
+Los lokómones aparecen solo en lugares específicos de la ciudad y usando la
+información del GPS de los celulares, la aplicación se asegura que los jugadores
+estén efectivamente en el lugar de aparición para poder atrapar los lokómones.
 
-Dado el \'exito del juego Lok\'omon GO, los dise\~nadores est\'an buscando formas de optimizar la aparici\'on de Lok\'omons en determinados sectores de modo tal de satisfacer algunas restricciones, por ejemplo, que el Lok\'omon que aparece sea el preferido de los residentes de esa localidad.
+Dado el éxito del juego, los desarrolladores de Lokomón GO están buscando formas
+de optimizar la aparición de lokómones de modo que ciertas restricciones sean
+satisfechas.
+Por ejemplo, a los desarrolladores les gustaría en algunos casos que los
+lokómones que aparecen en cierto sector sean los preferidos de los residentes de
+esa localidad y en otros casos que solo aparezcan lokómones odiados por los
+vecinos.
 
-Afortunadamente, los creadores del juego disponen de una lista ordenada de preferencias de Lok\'omons por cada vecino del sector. Por ejemplo, si enumer\'asemos los Lok\'omons de la foto como Nelmanpuff = 1, Pijorgech\'u = 2 y Olonsonder = 3, una lista corresponder\'ia a un orden de estos valores. Por ejemplo, $3 > 1 > 2$ indica que el vecino asociado a esa lista prefiere Olonsonder en primer lugar, Nelmanpuff en segundo lugar, y que su Lok\'omon menos preferido es Pijorgech\'u.
+Afortunadamente, los creadores del juego disponen de una lista con las
+preferencias de lokómones por cada vecino del sector.
+Por ejemplo, si enumeramos los lokómones de la figura de más arriba como
+Nelmanpuff = 1, Pijorgechú = 2 y Olonsonder = 3, la lista de preferencia $3, 1,
+2$ indica que el vecino asociado a esta lista prefiere a Olonsonder en primer
+lugar, Nelmanpuff en segundo lugar, y que su lokómon menos preferido es
+Pijorgechú.
 
-El problema consiste en cuatro tareas. En cada tarea se indicar\'a un objetivo y debes ayudar a interpretar la informaci\'on de las listas para decidir cual es el Lok\'omon m\'as adecuado para aparecer en la vecindad. Si m\'as de un Lok\'omon es el \'optimo, deber\'as seleccionar aquel cuyo \'indice sea menor.
+Este problema consiste en resolver distintas subtareas.
+En cada subtarea se indicará un objetivo y tu misión es interpretar las
+listas de preferencias de los vecinos para decidir cual es el Lokómon más
+adecuado para aparecer en la vecindad.
+% Antes de especificar cada subtarea se detallará 
+% Si más de un Lokómon es el óptimo, deberás seleccionar aquel cuyo índice sea
+% menor.
 \end{problemDescription}
 
 \begin{inputDescription}
-La primera l\'inea del input contiene tres enteros $S$, $N$ y $M$ separados por un espacio, donde $S$ ($1 \le S \le 4$) indica la subtarea que representa un objetivo a cumplir y la estrategia asociada, $N$ indica el n\'umero de Lok\'omons distintos que existen (que ser\'an numerados $1,2,\cdots,N$) y $M$ indica el n\'umero de personas en la vecindad.
-Las siguientes $M$ l\'ineas describen las listas de prioridad de cada vecino, de manera tal que la l\'inea $1 \leq i \leq M$ describe la lista del vecino $i$. Cada lista contiene una permutaci\'on del conjunto $\{1,\dots,N\}$, donde cada Lok\'omon est\'a ordenado de mayor a menor preferencia.
+La primera línea de la entrada contiene tres enteros $S$, $N$ y $M$ separados
+por un espacio.
+El entero $S$ ($1 \le S \le 4$) indica el número de la subtarea que
+hay que resolver para este caso.
+Los detalles de cada subtarea se describen más adelante en este enunciado.
+El entero $N$ ($1\leq N \leq 150$) indica la cantidad de lokómones distintos que
+existen.
+Cada lokómon es identificado con un número entre 1 y $N$.
+Finalmente, $M$ ($1\leq M\leq 10000$) indica el número de personas en la vecindad. 
+Las siguientes $M$ líneas describen las listas de preferencias de cada vecino,
+de manera tal que la línea $i$-ésima ($1 \leq i \leq M$) describe la lista del
+vecino $i$.
+% Cada lista consiste en una permutación de los números del 1 al $N$, indicando cada
+% Lokómon está ordenado de mayor a menor preferencia.
 
-Por ejemplo:
+Considera la siguiente entrada de ejemplo:
 
 \begin{minipage}[c]{\textwidth}
   \begin{center}
@@ -34,9 +75,9 @@ Por ejemplo:
       \begin{minipage}[t]{0.9\textwidth}
         \vskip 0.3pt
         \begin{verbatim}
-1 5 2
-3 5 1 2 4
-1 3 4 5 2
+1 4 2
+3 1 2 4
+1 3 4 2
         \end{verbatim}
       \end{minipage}
       \\
@@ -45,35 +86,57 @@ Por ejemplo:
   \end{center}
 \end{minipage}
 
-Indica que se debe cumplir el objetivo 1 en un sector donde hay $5$ Lok\'omons en total y $2$ vecinos. El primer vecino prefiere el Lok\'omon 3, en segundo lugar el Lok\'omon 5, y luego en orden descendiente el 1, 2 y en \'ultimo lugar el 4. An\'alogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 > 5 > 2$.
+La entrada indica que se debe cumplir el objetivo asociado a la subtarea 1, en
+una vecindad donde hay $5$ lokómones distintos y en total hay $2$ vecinos.
+El lokómon preferido del vecino 1 es el 3, en el segundo lugar de preferencia
+tiene al lokómon 5, en tercer lugar al 2 y en último lugar al 4.
+Análogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 > 2$. 
 
-En todos los casos las constantes $N, M$ satisfar\'an las siguientes restricciones: $1 \leq N \leq 150$ y $1 \leq M \leq 10000$.
+% En todos los casos las constantes $N, M$ satisfarán las siguientes restricciones: $1 \leq N \leq 150$ y $1 \leq M \leq 10000$.
 \end{inputDescription}
 
 \begin{outputDescription}
-La salida consiste en una sola l\'inea con un \'unico n\'umero $P$, el \'indice del Lok\'omon que debe aparecer.
-A continuaci\'on se describen las estrategias seg\'un las cuales se define cu\'al es este Lok\'omon.
+La salida debe consistir en una sola línea conteniendo un entero correspondiente
+a la respuesta de la subtarea correspondiente.
+Es decir, si $S$ es 1 debes entregar la respuesta a la subtarea 1, si $S$ es 2
+la respuesta a la subtarea 2, \dots
 
-\textbf{Subtarea 1}: El favorito.
 
-En esta tarea, debes ignorar el orden de los Lok\'omons y mirar cu\'al es el preferido de cada persona. Para cada entrada, responde el Lok\'omon que aparece m\'as veces como el preferido de los vecinos. En caso de empate, entrega aquel de menor \'indice.
+\newpage
+\section*{Subtareas y puntaje}
+A continuación se describe la estrategia que hay que utilizar para responder
+cada una de las subtareas, junto con ejemplos de entrada y salida para cada una.
+
+\subsection*{Subtarea 1 - El favorito (15 puntos)}
+En esta subtarea, debes ignorar el orden de los lokómones y simplemente
+mirar cuál es el preferido de cada persona.
+Para cada caso, debes responder el lokómon que aparece
+más veces como la primera preferencia.
+En caso de empate, debes responder aquel que tenga el menor índice. 
+
+\renewenvironment{sampleDescription}{\subsubsection*{Ejemplos de entrada y salida}}{}
 
 \begin{sampleDescription}
 \sampleIO{sample1-1}
 \sampleIO{sample1-2}
 \end{sampleDescription}
 
-\textbf{Subtarea 2}: El despreciado.
+\subsection*{Subtarea 2 - El despreciado (15 puntos)}
 
-En esta tarea tampoco interesa en el orden de los Lok\'omons, sino solo el Lok\'omon m\'as odiado de cada persona. Para cada entrada, responde el Lok\'omon que aparece m\'as veces como el \'ultimo en la lista de los vecinos. En caso de empate, entrega aquel de menor \'indice.
+En esta tarea tampoco interesa el orden de los lokómoness, sino solo el lokómon
+más odiado por cada persona.
+Para cada entrada, debes responder el Lokómon que aparece más veces al último.
+En caso de empate, debes entregar aquel de tenga el menor índice.
 
 \begin{sampleDescription}
 \sampleIO{sample2}
 \end{sampleDescription}
 
-\textbf{Subtarea 3}: El ganador justo.
+\subsection*{Subtarea 3 - El ganador justo (30 puntos)}
 
-Observa que la soluci\'on de la subtarea 1 no es la m\'as deseable socialmente. Por ejemplo, en el caso siguiente:
+Observa que la solución para la subtarea 1 puede no ser la más deseable
+socialmente.
+Considera el siguiente ejemplo:
 
 \begin{minipage}[c]{\textwidth}
   \begin{center}
@@ -84,7 +147,7 @@ Observa que la soluci\'on de la subtarea 1 no es la m\'as deseable socialmente. 
         \begin{verbatim}
 4 3
 1 2 3 4
-1 2 3 4
+1 2 4 3
 2 3 4 1
         \end{verbatim}
       \end{minipage}
@@ -94,42 +157,81 @@ Observa que la soluci\'on de la subtarea 1 no es la m\'as deseable socialmente. 
   \end{center}
 \end{minipage}
 
-La soluci\'on ser\'ia 1, lo cual dejar\'ia al tercer vecino muy enojado. En cambio, la soluci\'on 2 no molesta tanto a los primeros dos vecinos y deja contento al segundo. Para elegir al Lok\'omon de la zona, asigna valores $v_{i,j}$ a cada par (vecino, Lok\'omon) del modo siguiente: el $k$-\'esimo Lok\'omon de la lista del $i$-\'esimo vecino tiene valor $N-k$.
+En este caso la solución utilizando la estrategia de la subtarea 1 sería el
+lokómon 1, pues aparece dos veces como el ganador.
+Esto dejaría al tercer vecino muy enojado quien tiene al lokómon 1 como el menos
+favorito.
+En cambio, escoger el lokómon 2 no molesta tanto a los primeros dos vecinos y
+deja muy contento al tercero.
 
-Por ejemplo, si la lista del vecino $3$ es $2$ $3$ $4$ $1$, se tendr\'ia que $v_{3,1} = 0$, $v_{3,2} = 3$, $v_{3,3} = 2$ y $v_{3,4} = 1$.
+Para elegir al lokómon en esta subtarea, cada vecino asignará un puntaje a cada
+uno de los lokómones en su lista de preferencia.
+% cada lokómon a cada uno de los lokómones de su lista.
+% una de las listas se le asignará un puntaje que indica 
+Específicamente, el $k$-ésimo lokómon de la lista obtendrá un puntaje igual a
+$N-k$.
+Notar que cada vecino asignará un puntaje distinto a cada lokómon dependiendo
+de su lista de preferencia.
+El puntaje total asociado a un lokómon será la suma de los puntajes que obtuvo
+por cada vecino.
+A continuación se muestra una tabla con el puntaje asociado por cada vecino y
+el puntaje total de cada lokómon.
+\begin{center}
+\begin{tabular}{c|c|c|c|c}
+           & Lokómon 1 & Lokómon 2 & Lokómon 3 & Lokómon 4 \\
+  \hline
+  vecino 1 & 3         & 2         & 1         & 0         \\
+  \hline
+  vecino 2 & 3         & 2         & 0         & 1         \\
+  \hline
+  vecino 3 & 0         & 3         & 2         & 1         \\
+  \hline\hline
+  total    & 6         & 7         & 3         & 2
+\end{tabular}
+\end{center}
+% Denotaremos como $v_{i,k}$ al puntaje del $k$-ésimo
 
-Entrega el Lok\'omon que maximice la suma de valores por sobre todos los vecinos. Es decir, $j$ tal que el valor $V_{j} := \sum_{i = 1}^{M}v_{i,j}$ sea m\'aximo. En caso de empate, responde aquel de menor \'indice. En el caso anterior, la suma de valores de $2$ es $7$ en tanto que la suma de valores de $1$ es solo $6$.
+% Por ejemplo, si la lista del vecino $3$ es $2$ $3$ $4$ $1$, se tendría que $v_{3,1} = 0$, $v_{3,2} = 3$, $v_{3,3} = 2$ y $v_{3,4} = 1$.
+
+% Entrega el Lokómon que maximice la suma de valores por sobre todos los vecinos. Es decir, $j$ tal que el valor $V_{j} := \sum_{i = 1}^{M}v_{i,j}$ sea máximo. En caso de empate, responde aquel de menor índice. En el caso anterior, la suma de valores de $2$ es $7$ en tanto que la suma de valores de $1$ es solo $6$.
+En esta subtarea debes encontrar el lokómon que tenga el mayor puntaje total
+entre todos los lokómones.
 
 \begin{sampleDescription}
 \sampleIO{sample3}
 \end{sampleDescription}
 
-\textbf{Subtarea 4}: El detector de mentiras.
+\subsubsection*{Subtarea 4 - El detector de mentiras (50 puntos)}
 
-Observa ahora que la soluci\'on de la tarea 3 tiene el problema de dar incentivo a mentir. Por ejemplo, un vecino podr\'ia decir que odia un Lok\'omon que aprecia de modo tal que \'este baje en la evaluaci\'on y su primera elecci\'on aumente la valoraci\'on relativa. 
+Observa ahora que la solución de la tarea 3 tiene el problema de dar incentivos
+a mentir.
+Por ejemplo, un vecino podría decir que odia un lokómon que aprecia de
+modo que este baje en la evaluación y su primera elección aumente la
+valoración relativa. 
+A continuación daremos un algoritmo para confundir a los jugadores, de forma que
+les sea más complicado hacer trampa.
 
-Veamos el siguiente algoritmo para confundir a los jugadores y que no hagan trampa tan f\'acilmente.
+El algoritmo procede iterativamente eliminando un lokómon en cada iteración
+hasta que quede solo uno en cuyo caso este será elegido como el ganador.
+Los pasos específicos del algoritmo se muestran a continuación.
 
-\begin{itemize}
-	\item Si hay un solo Lok\'omon en juego, devolverlo, si no, continuar.
-	\item Calcular la suma de valores para cada Lok\'omon como en la tarea 3.
-	\item Eliminar aquel con la menor suma. Si hay m\'as de uno con la menor suma, eliminar aquel con mayor \'indice.
+\begin{enumerate}
+	\item Si hay un solo lokómon restante escogerlo como el ganador y terminar,
+    sino continuar con el paso 2.
+	\item Calcular el puntaje total de cada uno de los lokómones restantes de
+    la misma forma que en la tarea 3.
+	\item Eliminar al lokómon que tenga el menor puntaje total.
+    Si hay más de uno con el menor puntaje, eliminar aquel con mayor índice. 
 	\item Volver al paso 1.
-\end{itemize}
+\end{enumerate}
 
-Entrega en cada caso el resultado del algoritmo anterior.
+Para esta subtarea debes entregar en cada caso el lokómon que resulte como el
+ganador utilizando el algoritmo anterior.
 
 \begin{sampleDescription}
 \sampleIO{sample4}
 \end{sampleDescription}
 
 \end{outputDescription}
-
-\begin{scoreDescription}
-  \score{15} Respuestas Subtarea 1.
-  \score{15} Respuestas Subtarea 2.
-  \score{30} Respuestas Subtarea 3.
-  \score{40} Respuestas Subtarea 4.
-\end{scoreDescription}
 
 \end{document}
