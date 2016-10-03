@@ -16,14 +16,14 @@ Lok\'omon GO consiste en desplazarse por la ciudad para encontrar y coleccionar 
 
 Dado el \'exito del juego Lok\'omon GO, los dise\~nadores est\'an buscando formas de optimizar la aparici\'on de Lok\'omons en determinados sectores de modo tal de satisfacer algunas restricciones, por ejemplo, que el Lok\'omon que aparece sea el preferido de los residentes de esa localidad.
 
-Afortunadamente, los creadores del juego disponen de una lista ordenada de preferencias de Lok\'omons por cada vecino del sector. Por ejemplo, si enumer\'asemos los Lok\'omons de la foto como Nelmanpuff = 1, Pijorgech\'u = 2 y Olonsonder = 3, una lista corresponder\'ia un orden de estos valores. Por ejemplo, $3 > 1 > 2$ indica que el vecino asociado a esa lista prefiere Olonsonder en primer lugar, Nelmanpuff en segundo lugar, y que su Lok\'omon menos preferido es Pijorgech\'u.
+Afortunadamente, los creadores del juego disponen de una lista ordenada de preferencias de Lok\'omons por cada vecino del sector. Por ejemplo, si enumer\'asemos los Lok\'omons de la foto como Nelmanpuff = 1, Pijorgech\'u = 2 y Olonsonder = 3, una lista corresponder\'ia a un orden de estos valores. Por ejemplo, $3 > 1 > 2$ indica que el vecino asociado a esa lista prefiere Olonsonder en primer lugar, Nelmanpuff en segundo lugar, y que su Lok\'omon menos preferido es Pijorgech\'u.
 
 El problema consiste en cuatro tareas. En cada tarea se indicar\'a un objetivo y debes ayudar a interpretar la informaci\'on de las listas para decidir cual es el Lok\'omon m\'as adecuado para aparecer en la vecindad. Si m\'as de un Lok\'omon es el \'optimo, deber\'as seleccionar aquel cuyo \'indice sea menor.
 \end{problemDescription}
 
 \begin{inputDescription}
-La primera l\'inea del input contiene dos enteros $N$ y $M$ separados por un espacio, donde $N$ indica el n\'umero de Lok\'omons distintos que existen (que ser\'an numerados $1,2,\cdots,N$) y $M$ indica el n\'umero de personas en la vecindad.
-Las siguientes $M$ l\'ineas describen las listas de priodidad de cada vecino, de manera tal que la l\'inea $1 \leq i \leq M$ describe la lista del vecino $i$. Cada lista contiene una permutaci\'on del conjunto $\{1,\dots,N\}$, donde cada Lok\'omon est\'a ordenado de mayor a menor preferencia.
+La primera l\'inea del input contiene tres enteros $S$, $N$ y $M$ separados por un espacio, donde $S$ ($1 \le S \le 4$) indica la subtarea que representa un objetivo a cumplir y la estrategia asociada, $N$ indica el n\'umero de Lok\'omons distintos que existen (que ser\'an numerados $1,2,\cdots,N$) y $M$ indica el n\'umero de personas en la vecindad.
+Las siguientes $M$ l\'ineas describen las listas de prioridad de cada vecino, de manera tal que la l\'inea $1 \leq i \leq M$ describe la lista del vecino $i$. Cada lista contiene una permutaci\'on del conjunto $\{1,\dots,N\}$, donde cada Lok\'omon est\'a ordenado de mayor a menor preferencia.
 
 Por ejemplo:
 
@@ -34,7 +34,7 @@ Por ejemplo:
       \begin{minipage}[t]{0.9\textwidth}
         \vskip 0.3pt
         \begin{verbatim}
-5 2
+1 5 2
 3 5 1 2 4
 1 3 4 5 2
         \end{verbatim}
@@ -45,14 +45,14 @@ Por ejemplo:
   \end{center}
 \end{minipage}
 
-Indica que hay $5$ Lok\'omons en total, y $2$ vecinos en el sector. El primer vecino prefiere el Lok\'omon 3, en segundo lugar el Lok\'omon 5, y luego en orden descendiente el 1, 2 y en \'ultimo lugar el 4. An\'alogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 > 5 > 2$.
+Indica que se debe cumplir el objetivo 1 en un sector donde hay $5$ Lok\'omons en total y $2$ vecinos. El primer vecino prefiere el Lok\'omon 3, en segundo lugar el Lok\'omon 5, y luego en orden descendiente el 1, 2 y en \'ultimo lugar el 4. An\'alogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 > 5 > 2$.
 
 En todos los casos las constantes $N, M$ satisfar\'an las siguientes restricciones: $1 \leq N \leq 150$ y $1 \leq M \leq 10000$.
 \end{inputDescription}
 
 \begin{outputDescription}
 La salida consiste en una sola l\'inea con un \'unico n\'umero $P$, el \'indice del Lok\'omon que debe aparecer.
-A continuaci\'on se describen las reglas seg\'un las cuales se define cu\'al es este Lok\'omon.
+A continuaci\'on se describen las estrategias seg\'un las cuales se define cu\'al es este Lok\'omon.
 
 \textbf{Subtarea 1}: El favorito.
 
