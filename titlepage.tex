@@ -52,7 +52,7 @@ Esta página muestra información general que se aplica a todos los problemas.
 \item El nombre del archivo debe tener la extensión \verb+.c+, \verb+.cpp+ o
   \verb+.java+ dependiendo de si la solución está escrita en \verb|C|,
   \verb|C++| o \verb|Java| respectivamente.
-Para enviar una solución en Java hay que seguir algunos pasos adicionales, ver detalles más abajo.
+Para enviar una solución en Java hay que seguir algunos pasos adicionales. Ver detalles más abajo.
 \end{enumerate}
 
 \subsection*{Casos de prueba y subtareas}
@@ -102,7 +102,7 @@ Para enviar una solución en Java hay que seguir algunos pasos adicionales, ver 
   \item Cada problema tiene un \emph{nombre clave} que será especificado en el
     enunciado.
     Este nombre clave será también utilizado en el sistema de evaluación
-    para referirse al problema.
+    para identificar al problema.
   \item Para enviar correctamente una solución en Java el archivo debe contener
     una clase llamada igual que el nombre clave del problema.
     Esta clase debe contener también el método \verb+main+.
@@ -117,6 +117,14 @@ public class marraqueta {
   }
 }
 \end{verbatim}
+  \item Si el archivo no contiene la clase con el nombre correcto el sistema de
+    evaluación reportará un error de compilación.
+
+  \item La clase no debe estar contenida dentro de un \emph{package}.
+      Hay que tener cuidado pues algunos entornos de desarrollo como Eclipse
+    incluyen las clases en un \emph{package} por defecto.
+  \item Si la clase está contenida dentro de un package el sistema reportará un
+    error de compilación.
 \end{enumerate}
 
 
