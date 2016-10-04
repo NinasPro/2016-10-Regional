@@ -5,12 +5,13 @@
 \usepackage{epstopdf}
 %QUITENLE LA LINEA DE ARRIBA SI QUIEREN VIVIR
 
-\title{El Malvado Profesor Moriarki}
+\title{El malvado profesor Moriarki}
+\codename{moriarki}
 
 \begin{document}
 \begin{problemDescription}
 Araya solía ser una niña muy feliz pero cuando entró a 1ero medio todo cambió.
-En un principio logró hacer muchas amigas y en general disfrutaba de casi todas
+En un principio logró hacer muchas amistades y en general disfrutaba de casi todas
 sus asignaturas, todas a excepción de matemáticas.
 Araya está convencida de que todo es culpa de su profesor.
 Es más, está segura de que su profesor, el señor Moriarki, es un genio malévolo
@@ -67,7 +68,7 @@ pasar de curso.
 
 \end{problemDescription}
 
-\newpage
+% \newpage
 \begin{inputDescription}
   La entrada está compuesta de dos líneas.
   La primera línea contiene un entero $N$ ($1\leq N\leq 100$) que indica la
@@ -78,11 +79,17 @@ pasar de curso.
   expresión.
   Un 0 en una posición par representa una suma ($+$), mientras que un 1
   representa una multiplicación ($\times$). 
+
+  \newpage
   Por ejemplo, para representar la expresión
-  $$
-  2 + 2 \times 2 + 2\times 3 \times 2 + 5
-  $$
-  usamos la siguiente secuencia de enteros
+
+\vspace{-0.5em}
+\begin{minipage}{\textwidth}
+  \centering
+$2 + 2 \times 2 + 2\times 3 \times 2 + 5$
+\end{minipage}
+\vspace{-1em}
+usamos la siguiente secuencia de enteros
 \begin{verbatim}
                               2 0 2 1 2 0 2 1 3 1 2 0 5
 \end{verbatim}
@@ -106,9 +113,9 @@ expresión aritmética.
   $c_i = 0$ para todo $i$.
   Ver ejemplo de entrada 1.
   \score{35} Se probarán varios casos donde la expresión primero contiene solo
-  multiplicaciones y luego solo sumas, es decir, existe un $m$ tal que $0 \leq m \leq n$ y para
-  cada $i < m$, se tiene que $c_i = 1$, y para cada $i \geq m$ se tiene $c_i =
-  0$.
+  multiplicaciones y luego solo sumas, es decir, existe un $m$ ($0 \leq m \leq
+  n$) tal que para cada $i < m$ se tiene que $c_i = 1$ y para cada $i \geq m$
+  se tiene que $c_i = 0$.
   Ver ejemplo de entrada 2. 
   \score{45} Se probarán varios casos sin restricciones adicionales.
 \end{scoreDescription}

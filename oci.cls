@@ -41,8 +41,8 @@
 %% TITLE
 \newif\ifproblemcnt%
 \problemcntfalse%
-% \global\let\@filename\@empty
-% \newcommand{\filename}[1]{\def\@filename{#1}}
+\global\let\@codename\@empty
+\newcommand{\codename}[1]{\def\@codename{#1}}
 
 \global\let\@problem\@empty
 \newcommand{\problem}[1]{\def\@problem{#1}}
@@ -57,7 +57,7 @@
       {\huge\bf \sf Problema \@problem}\\
       \fi
     \LARGE{\sf \@title}\\[2mm]
-    % \normalsize {\em archivo:} {\tt \@filename\{.c,.cpp,.pas\}}
+    \normalsize {\em nombre clave:} {\tt \@codename}
     \vspace{6pt}
     \end{center}
     \stepcounter{problemcnt}
@@ -109,7 +109,7 @@
 }
 
 
-\newenvironment{scoreDescription}{\subsection*{Subtareas y Puntaje}\begin{description}[leftmargin=0pt]\itemsep 0pt}{\end{description}}
+\newenvironment{scoreDescription}{\subsection*{Subtareas y puntaje}\begin{description}[leftmargin=0pt]\itemsep 0pt}{\end{description}}
 \newcommand{\score}[1]{\item[#1 puntos]}
 
 \newenvironment{sampleDescription}{\subsection*{Ejemplos de entrada y salida}}{}
