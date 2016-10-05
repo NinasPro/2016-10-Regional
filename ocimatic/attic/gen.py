@@ -24,16 +24,32 @@ def random_input(N, fn):
             s.add((a,b))
             f.write(str(a)+" "+str(b)+"\n")
 
+def random_small_intervals(N, fn):
+    with open(fn, 'w') as f:
+        s = set()
+        f.write(str(N)+"\n")
+        for i in range(N):
+            a = random.randint(1, MAX)
+            l = random.randint(1, 100)
+            b = min(a+l, MAX)
+            while (a,b) in s:
+                a = random.randint(1, MAX)
+                l = random.randint(1, 100)
+                b = min(a+l, N)
+            s.add((a,b))
+            f.write(str(a)+" "+str(b)+"\n")
+
 def all_included(N, fn):
     with open(fn, 'w') as f:
         f.write(str(N)+"\n")
-        f.write("1 "+str(MAX)+"\n")
         s = set()
-        for i in range(N-1):
+        s.add((1, MAX))
+        for i in range(N):
             (a, b) = random_pair(MAX)
             while (a,b) in s:
                 (a, b) = random_pair(MAX)
             s.add((a,b))
+        for (a,b) in s:
             f.write(str(a)+" "+str(b)+"\n")
 
 def zero_included(N, fn):
@@ -52,9 +68,11 @@ def zero_included(N, fn):
 
 
 if __name__ == '__main__':
+    random.seed()
     #########################################
     ############### Subtask 1 ###############
     #########################################
+    print('Generating st1...')
     with open('st1/one-1.in', 'w') as f:
         f.write("1\n")
         f.write("1 10\n")
@@ -88,6 +106,7 @@ if __name__ == '__main__':
     #########################################
     ############### Subtask 2 ###############
     #########################################
+    print('Generating st2...')
     with open('st2/two-yes-2.in', 'w') as f:
         f.write("2\n")
         f.write("1 5\n")
@@ -102,19 +121,27 @@ if __name__ == '__main__':
         N = random.randint(80, 100)
         zero_included(N, 'st2/zero-included-%02d.in' % i)
     #########################################
-    ############### Subtask 2 ###############
+    ############### Subtask 3 ###############
     #########################################
+    print('Generating st3...')
     with open('st3/two-yes-2.in', 'w') as f:
         f.write("2\n")
         f.write("1 5\n")
         f.write("1 10\n")
+    print('  [Generating random]')
     for i in range(10):
         N = random.randint(80000, 100000)
         random_input(N, 'st3/random-%02d.in' % i)
+    print('  [Generating all-included]')
     for i in range(5):
         N = random.randint(80000, 100000)
         all_included(N, 'st3/all-included-%02d.in' % i)
+    print('  [Generating zero-included]')
     for i in range(5):
         N = random.randint(80000, 100000)
         zero_included(N, 'st3/zero-included-%02d.in' % i)
+    print('  [Generating random-small-intervals]')
+    for i in range(5):
+        N = random.randint(80000, 100000)
+        random_small_intervals(N, 'st3/random-small-intervals-%02d.in' % i)
 

@@ -3,6 +3,7 @@
 \usepackage{lipsum}
 
 \title{Lokómon GO}
+\codename{lokomon}
 
 \begin{document}
 \begin{problemDescription}
@@ -16,12 +17,12 @@ y Olonsonder, de tipo música, hipster y fuego, respectivamente.
 \end{center}
 
 En este nuevo siglo la tecnología ha avanzado mucho y ahora nos permite tener
-nuevas y entretenidas formas de disfrutar con los lokónomes.
+nuevas y entretenidas formas de disfrutar con los lokómones.
 Lokómon GO es un novedoso juego de realidad aumentada basado en esta popular
 franquicia de criaturas de bolsillo.
 El juego consiste en desplazarse por la ciudad con el objetivo de atrapar y
 coleccionar lokómones.
-Los lokómones solo aparecen en lugares específicos de la ciudad y usando la
+Los lokómones solo aparecen en lugares específicos y usando la
 información del GPS, la aplicación se asegura que los jugadores estén
 efectivamente en el lugar de aparición antes de que puedan atrapar a los
 lokómones.
@@ -29,7 +30,7 @@ lokómones.
 Dado el éxito del juego, los desarrolladores de Lokomón GO están buscando formas
 de optimizar la aparición de lokómones de modo que ciertas restricciones sean
 satisfechas.
-Por ejemplo, a los desarrolladores les gustaría en algunos casos que los
+Por ejemplo, en algunos casos a los desarrolladores les gustaría que los
 lokómones que aparecen en cierto sector sean los preferidos de los residentes de
 esa localidad y en otros casos que solo aparezcan lokómones odiados por los
 vecinos.
@@ -57,12 +58,13 @@ de los casos de prueba, el cual será uniforme para cada una de las subtareas.
 La primera línea de la entrada contiene tres enteros $S$, $N$ y $M$ separados
 por un espacio.
 El entero $S$ ($1 \le S \le 4$) indica el número de la subtarea que
-hay que resolver para este caso.
-Los detalles de cada subtarea se describen más adelante en este enunciado.
+hay que resolver.
+Los detalles de cada subtarea se describen más adelante en el enunciado.
 El entero $N$ ($1\leq N \leq 150$) indica la cantidad de lokómones distintos que
 existen.
 Cada lokómon es identificado con un número entre 1 y $N$.
-Finalmente, $M$ ($1\leq M\leq 10000$) indica el número de personas en el sector. 
+Finalmente, el número $M$ ($1\leq M\leq 10000$) indica el cantidad de personas en
+el sector.
 Las siguientes $M$ líneas describen las listas de preferencias de cada vecino,
 de manera tal que la línea $i$-ésima ($1 \leq i \leq M$) describe la lista del
 vecino $i$.
@@ -103,13 +105,15 @@ Análogamente el segundo vecino ordena sus preferencias de la forma $1 > 3 > 4 >
 \begin{outputDescription}
 La salida debe consistir en una sola línea conteniendo un entero correspondiente
 a la respuesta de la subtarea correspondiente.
-Es decir, si $S$ es 1 debes entregar la respuesta a la subtarea 1, si $S$ es 2
-la respuesta a la subtarea 2, \dots
+Es decir, si $S$ es igual a 1 debes entregar la respuesta a la subtarea 1, si
+$S$ es igual 2 la respuesta a la subtarea 2, si $S$ es igual a 3 la respuesta a
+la subtarea 3 y si $S$ es igual a $4$ la respuesta a la subtarea 4.
+\end{outputDescription}
 
+\newpage
 \section*{Subtareas y puntaje}
-A continuación se describe la estrategia que hay que utilizar para responder
-cada una de las subtareas, junto con ejemplos de entrada y salida para cada una.
-
+% A continuación se describe la estrategia que hay que utilizar para responder
+% cada una de las subtareas, junto con ejemplos de entrada y salida para cada una.
 \subsection*{Subtarea 1 - El favorito (15 puntos)}
 En esta subtarea, debes ignorar el orden de los lokómones y simplemente
 mirar cuál es el preferido de cada persona.
@@ -126,15 +130,16 @@ En caso de empate, debes responder aquel que tenga el menor índice.
 
 \subsection*{Subtarea 2 - El despreciado (15 puntos)}
 
-En esta tarea tampoco interesa el orden de los lokómoness, sino solo el lokómon
+En esta tarea tampoco interesa el orden de los lokómones, sino solo el lokómon
 más odiado por cada persona.
-Para cada entrada, debes responder el Lokómon que aparece más veces al último.
+Para cada entrada, debes responder el lokómon que aparece más veces al último.
 En caso de empate, debes entregar aquel de tenga el menor índice.
 
 \begin{sampleDescription}
 \sampleIO{sample2}
 \end{sampleDescription}
 
+\newpage
 \subsection*{Subtarea 3 - El ganador justo (30 puntos)}
 
 Observa que la solución para la subtarea 1 puede no ser la más deseable
@@ -180,7 +185,8 @@ de su lista de preferencia.
 El puntaje total asociado a un lokómon será la suma de los puntajes que obtuvo
 por cada vecino.
 A continuación se muestra una tabla con el puntaje asignado por cada vecino
-a los distintos lokómones, junto con el puntaje total de cada lokómon.
+a los distintos lokómones en el ejemplo anterior, junto con el puntaje total de
+cada lokómon.
 \begin{center}
 \begin{tabular}{c|c|c|c|c}
            & Lokómon 1 & Lokómon 2 & Lokómon 3 & Lokómon 4 \\
@@ -238,6 +244,7 @@ acuerdo al algoritmo anterior.
 \sampleIO{sample4}
 \end{sampleDescription}
 
-\end{outputDescription}
 
 \end{document}
+
+%  LocalWords:  lokómones Olonsonder Pijorgechú Nelmanpuff lokómon

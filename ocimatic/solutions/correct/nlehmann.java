@@ -1,4 +1,5 @@
 import java.util.*;
+import java.io.*;
 class nlehmann {
     static class Pair implements Comparable<Pair>{
         int a, b;
@@ -14,14 +15,16 @@ class nlehmann {
         }
     }
     static public void main(String[] args) throws Exception {
-        Scanner in = new Scanner(System.in);
-        int N = in.nextInt();
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+        int N = Integer.parseInt(in.readLine());
+        StringTokenizer st;
 
         Pair[] vec = new Pair[N];
         for (int i = 0; i < N; ++i) {
+            st = new StringTokenizer(in.readLine());
             int a, b;
-            a = in.nextInt();
-            b = in.nextInt();
+            a = Integer.parseInt(st.nextToken());
+            b = Integer.parseInt(st.nextToken());
             vec[i] = new Pair(a, b);
         }
         Arrays.sort(vec);
