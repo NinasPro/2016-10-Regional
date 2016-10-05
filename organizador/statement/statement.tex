@@ -36,9 +36,8 @@ para saber qué hacer.
 Naturalmente, Pedro quiere escuchar la mayor cantidad de canciones posible,
 pero tiene un tiempo limitado.
 Dada una lista de reproducción, y la duración de cada una de sus canciones, tu
-tarea es determinar cuál es la última canción de la lista que es posible
-reproducir por completo dado el tiempo que Pedro tarda en ir desde su casa al
-colegio.
+tarea es determinar cuantas canciones de la lista es posible reproducir por
+completo dado el tiempo que Pedro tarda en ir desde su casa al colegio.
 Puedes asumir que la suma de los tiempos de las canciones será al menos el tiempo
 que Pedro tarda en llegar al colegio desde su casa y que empieza a escuchar la
 lista de reproducción apenas sale de su casa.
@@ -59,22 +58,20 @@ lista de reproducción apenas sale de su casa.
   casa al colegio ($0\leq H\leq 99$, $0\leq M\leq 59$).
   La siguiente línea contiene un entero $N$ ($0\leq N\leq 300\,000$)
   correspondiente a la cantidad de canciones en la lista de reproducción.
-  Cada una de las siguientes $N$ líneas describe una canción y cada canción es
-  identificada con un número entre 1 y $N$ en este mismo orden.
-  Cada una de las líneas describiendo una canción contiene dos enteros $M_i$ y $S_i$
-  correspondientes a su duración en minutos y segundos ($0\leq
-  M_i\leq 99, 0\leq S_i\leq 59$).
+  Cada una de las siguientes $N$ líneas describe una canción y contiene dos
+  enteros $M_i$ y $S_i$ correspondientes a su duración en minutos y segundos
+  ($0\leq M_i\leq 99, 0\leq S_i\leq 59$).
   Está garantizado que el tiempo que tarda en reproducirse completamente la
   lista de reproducción es estrictamente mayor que el tiempo que le toma a Pedro
   ir de su casa al colegio.
 \end{inputDescription}
 
 \begin{outputDescription}
-  La salida debe consistir de una única linea con un entero indicando el número 
-  de la última canción que es posible reproducir completamente.
-  Si dado el tiempo que Pedro tarda en ir desde su casa al colegio ni siquiera
-  es posible reproducir la primera canción completamente, la respuesta
-  debe ser 0.
+  La salida debe consistir de una única linea con un entero indicando la cantidad
+  de canciones que es posible reproducir completamente.
+  % Si dado el tiempo que Pedro tarda en ir desde su casa al colegio ni siquiera
+  % es posible reproducir la primera canción completamente, la respuesta
+  % debe ser 0.
 \end{outputDescription}
 
 \begin{scoreDescription}
