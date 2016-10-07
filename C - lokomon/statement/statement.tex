@@ -204,9 +204,11 @@ cada lokómon.
 
 % Por ejemplo, si la lista del vecino $3$ es $2$ $3$ $4$ $1$, se tendría que $v_{3,1} = 0$, $v_{3,2} = 3$, $v_{3,3} = 2$ y $v_{3,4} = 1$.
 
-% Entrega el Lokómon que maximice la suma de valores por sobre todos los vecinos. Es decir, $j$ tal que el valor $V_{j} := \sum_{i = 1}^{M}v_{i,j}$ sea máximo. En caso de empate, responde aquel de menor índice. En el caso anterior, la suma de valores de $2$ es $7$ en tanto que la suma de valores de $1$ es solo $6$.
+% Entrega el Lokómon que maximice la suma de valores por sobre todos los vecinos. Es decir, $j$ tal que el valor $V_{j} := \sum_{i = 1}^{M}v_{i,j}$ sea máximo.
 En esta subtarea debes encontrar el lokómon que tenga el mayor puntaje total
 entre todos los lokómones.
+En caso de existir más de un lokómon con el mismo puntaje máximo debes
+responder aquel de menor índice.
 
 \begin{sampleDescription}
 \sampleIO{sample3}
