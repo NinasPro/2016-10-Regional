@@ -35,3 +35,4 @@ checker
 *fdb_latexmk
 *.md5
 *.pdf
+*.tar.gz
